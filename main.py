@@ -1,6 +1,6 @@
 def main():
-    fileLocation = "books/frankenstein.txt"
-    with open(fileLocation) as f:
+    fileName = input("Name of the file:   ")
+    with open(f"books/{fileName}") as f:
         files_content = f.read()
 
         words = files_content.split()
@@ -41,12 +41,12 @@ def main():
             if word in alpha:
                 alpha[word] += 1
         sortedAlpha = dict(sorted(alpha.items(),key=lambda item: item[1], reverse = True))
-    return fileLocation, numOfwords, sortedAlpha
+    return fileName, numOfwords, sortedAlpha
     
         
 
-fileLocation, numOfwords, alpha = main()
-print(f"--- Begin report of {fileLocation} ---")
+fileName, numOfwords, alpha = main()
+print(f"--- Begin report of {fileName} ---")
 
 print(f"{numOfwords} words found in the document")
 for a in alpha:
